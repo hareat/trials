@@ -1,0 +1,8 @@
+# All directories named bin and tmp
+bin/
+tmp/
+
+# All files without an extension (ignore everything, unignore dirs, unignore files with extension)
+#*
+#!*/
+#!*.*
