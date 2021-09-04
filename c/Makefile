@@ -1,9 +1,12 @@
 .PHONY: all clean
 
-all: bin bin/fork bin/forkExec bin/forkExecChild bin/shm_posix bin/shm_sysv bin/signal
+all: bin tmp bin/bypass_fflush bin/fork bin/forkExec bin/forkExecChild bin/shm_posix bin/shm_sysv bin/signal
 
 bin:
 	mkdir bin
+
+tmp:
+	mkdir tmp
 
 bin/shm_posix: shm_posix.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@ -lrt

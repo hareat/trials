@@ -31,7 +31,7 @@ void multiline()
 // is only printed once.
 void oneliner()
 {
-	static const int only_once = printf("%s() this line should be printed only once\n", __func__);
+	static const auto only_once = printf("%s() this line should be printed only once\n", __func__);
 	printf("%s() only_once=%d (but nobody will care about it)\n", __func__, only_once);
 }
 
@@ -45,4 +45,6 @@ int main(const int argc, const char* argv[])
 	puts("\ncalling onliner() twice");
 	oneliner();
 	oneliner();
+
+	return 0;
 }
