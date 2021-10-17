@@ -6,3 +6,6 @@ tmp/
 #*
 #!*/
 #!*.*
+
+# IDE files
+.project
