@@ -1,6 +1,6 @@
 .PHONY: all clean
 
-all: bin tmp bin/static_side_effect bin/bypass_destructor
+all: bin tmp bin/static_side_effect bin/bypass_destructor bin/global_mess bin/global_mess2
 
 bin:
 	mkdir bin

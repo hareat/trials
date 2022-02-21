@@ -17,6 +17,7 @@ To build the targets start make in this directory.
 
 |Source         |Target           |Description                                                       |
 |---------------|-----------------|------------------------------------------------------------------|
+|bypass_fflush.c|bin/bypass_fflush|Are file buffers flushed in case of forgotten fclose, a terminating signal or an exit call?|
 |fork.c         |bin/fork         |Shows the use of fork to create several child processes.          |
 |forkExec.c     |bin/forkExec     |Shows the use of fork+exec* to start several child programs.      |
 |forkExecChild.c|bin/forkExecChild|Sleeps for a while. Default child process binary for bin/forkExec.|
