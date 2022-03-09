@@ -1,6 +1,7 @@
 .PHONY: all clean
 
-all: bin tmp bin/bypass_fflush bin/fork bin/forkExec bin/forkExecChild bin/shm_posix bin/shm_sysv bin/signal
+all: bin tmp bin/bypass_fflush bin/fork bin/forkExec bin/forkExecChild \
+	bin/sem_sysv_readwrite bin/sem_sysv_writeonly bin/shm_posix bin/shm_sysv bin/signal
 
 bin:
 	mkdir bin
