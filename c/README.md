@@ -26,3 +26,4 @@ To build the targets start make in this directory.
 |shm_posix.c    |bin/shm_posix    |Shows the use of POSIX shared memory.                             |
 |shm_sysv.c     |bin/shm_sysv     |Shows the use of System V shared memory.                          |
 |signal.c       |bin/signal       |Shows the use of signal to handle signals.                        |
+|totp.c         |bin/totp         |Implements a Time-based One-Time Password. see RFC 6238.          |

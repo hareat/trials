@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+  <polyline fill="red" points="30,90 30,130 340,130 340,90 270,90 245,50 125,50 100,90" />
+  <circle fill="black" cx="100" cy="130" r="25" />
+  <circle fill="black" cx="270" cy="130" r="25" />
+  <g stroke="yellow" >
+    <line x1="345" y1="100" x2="370" y2="90"
+    stroke-width="2"  />
+    <line x1="345" y1="110" x2="370" y2="110"
+    stroke-width="2"  />
+    <line x1="345" y1="120" x2="370" y2="130"
+    stroke-width="2"  />
+  </g>
+</svg>
+
