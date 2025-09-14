@@ -1,0 +1,63 @@
+digraph "DB crow's foot notation" {
+    graph [label="\G", labelloc=t, labeljust=l];
+    node [shape=Mrecord];    # Mrecord instead of record if you like rounded corners
+    edge [dir=both];
+    # nodesep and ranksep can increase readability
+    # nodesep="0.5";
+    # ranksep="1.0";
+
+    subgraph clusterOuter {
+        label="outer cluster";
+
+        subgraph clusterInnerA {
+            label="inner red cluster - labels at the end of the edges are hard to read";
+            color=red; node [color=red]; edge [color=red];
+
+            comment1 [shape=plaintext, label="Trial of href/url which is useful\nfor complex DB models.\nThe drawback is that it is much more\ndifficult to copy text from the model."];
+            Master1 [label="{\N|id PRIMARY KEY|data}", href="../html/redcar.svg"];
+
+            Detail11 [label="{\N|id PRIMARY KEY|master1_id FOREIGN KEY NOT NULL\ndata}"];
+            Detail12 [label="{\N|id PRIMARY KEY|master1_id FOREIGN KEY NULL\ndata}"];
+
+            Master1 -> Detail11 [arrowtail=teetee,  taillabel=id, arrowhead=crowodot, headlabel=master1_id];
+            Master1 -> Detail12 [arrowtail=teeodot, taillabel=id, arrowhead=crowodot, headlabel=master1_id];
+        }
+
+        subgraph clusterInnerB {
+            label="inner blue cluster - just use the foreign key as label to increase readability";
+            color=blue; node [color=blue]; edge [color=blue];
+
+            Master2 [label="{\N|master2_id PRIMARY KEY|data}"];
+            Detail21 [label="{\N|detail21_id PRIMARY KEY|master2_id FOREIGN KEY NOT NULL\ndata}"];
+            Detail22 [label="{\N|detail22_id PRIMARY KEY|master2_id FOREIGN KEY NULL\ndata}"];
+
+            Master2 -> Detail21 [arrowtail=teetee,  arrowhead=crowodot, label=master2_id];
+            Master2 -> Detail22 [arrowtail=teeodot, arrowhead=crowodot, label=master2_id];
+        }
+
+        subgraph clusterInnerC {
+            label="inner green cluster - different kind of 1:1 relationships";
+            color=green; node [color=green]; edge [color=green];
+
+            Master3 [label="{\N|id PRIMARY KEY|data}"];
+            Detail31 [label="{\N|id PRIMARY KEY|master3_id FOREIGN KEY UNIQUE NOT NULL\ndata}"];
+            Detail32 [label="{\N|id PRIMARY KEY|master3_id FOREIGN KEY UNIQUE NULL\ndata}"];
+            Detail33 [label="{\N|id PRIMARY KEY|master3_id FOREIGN KEY UNIQUE NOT NULL\ndata}"];
+
+            comment3 [shape=plaintext, label="use teetee if your\napplication can\nensure one detail\nfor each master"];
+            comment3 -> Detail33 [style=dotted, dir=none];
+
+            Master3 -> Detail31 [arrowtail=teetee,  arrowhead=teeodot, label=master3_id];
+            Master3 -> Detail32 [arrowtail=teeodot, arrowhead=teeodot, label=master3_id];
+            Master3 -> Detail33 [arrowtail=teetee,  arrowhead=teetee, label=master3_id];
+        }
+
+        OuterDetail [label="{\N|id PRIMARY KEY|master1_id FOREIGN KEY NULL\nmaster2_id FOREIGN KEY NOT NULL\ndata}"];
+
+        commentOuter [shape=plaintext, label="use crowtee if your\napplication can ensure\nat least one detail\nfor each master"];
+        commentOuter -> OuterDetail [style=dotted, dir=none];
+
+        Master1 -> OuterDetail [arrowtail=teetee,  arrowhead=crowtee, label=master1_id];
+        Master2 -> OuterDetail [arrowtail=teeodot, arrowhead=crowtee, label=master2_id];
+    }
+}
